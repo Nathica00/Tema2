@@ -76,7 +76,7 @@ la resta, la multiplicació o la divisió dels dos nombres.
 */
 echo "<h3>Calculadora</h3>";
 
-function calculate(int $number1, int  $number2, string $operator){
+function calculate(int $number1, int  $number2, string $operator):void {
     switch ($operator) {
         case '+':
             echo "El resultado de la suma es: " .$number1+$number2;
@@ -107,15 +107,18 @@ Si no s’inclou un nombre determinat, el nombre haurà de tenir un valor per de
 A més, aquesta funció ha de tenir un segon paràmetre que indiqui de quant a quant es compta(D'1 en 1, de 2 en 2…). 
 El compte s’ha de mostrar per pantalla pas per pas.*/
 
-function tocount(int $stop_number, int $frecuency) {
-    $i= 0;
-    while ($i < $stop_number) {
-        $i=$i+$frecuency;
-        echo $i ."<br>";
-    }
- }
 
-tocount (8,2); // cambiar los datos por el numero en el que quiero que pare de contar y la frecuencia ( de 1 en 1, de 2 en 2...)
+function tocount(int $frecuency, int $stop_number=10 ):void {
+    $i= 0;
+    while ($i < $stop_number ) {
+        $i=$i+$frecuency;
+        if ($i<=$stop_number){
+        echo $i ."<br>";
+        }
+    }
+}
+
+tocount (3); // cambiar los datos por el numero en el que quiero que pare de contar y la frecuencia ( de 1 en 1, de 2 en 2...)
 
 
 echo "<h3>Excercici 5</h3>";
@@ -129,17 +132,20 @@ Si la nota està entre 45% i 59%, el grau hauria de ser Segona Divisió.
 Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.
 Si la nota és menor a 33%, l'estudiant reprovarà. */
 
-function verify_grad(int $nota){
+function verify_grad(int $nota):void{
 
     if ($nota<33) {
         echo "Reprueba";
-    } elseif ($nota<=44) {
-        echo "Tercera Divisió";
-        }elseif($nota<=59){
+    } 
+    elseif ($nota<=44) {
+            echo "Tercera Divisió";
+    }
+    elseif($nota<=59){
             echo "Segona Divisió";
-            }else{
+    }
+    else{
             echo "Primera Divisió";
-                 }
+    }
 }
 verify_grad(80); // meto el porcentaje de la nota por parametro (del 1 al 100)
 
@@ -156,7 +162,7 @@ Consell: pot ser que la funció rand () et resulti útil.*/
 
 
 
-function isBitten(int $prob){ 
+function isBitten(int $prob):void{ 
        if($prob==1){ 
    echo "Has sido mordido";
    }else{ 
